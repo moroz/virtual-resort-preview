@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ScenePoint } from "../../types/scenes";
+import { ScenePoint } from "../interfaces/scenes";
 import { Entity } from "aframe-react";
 
 interface Props {

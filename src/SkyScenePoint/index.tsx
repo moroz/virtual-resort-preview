@@ -1,4 +1,5 @@
-import { ScenePoint, ScenePointType } from "../../types/scenes";
+import React from "react";
+import { ScenePoint, ScenePointType } from "../interfaces/scenes";
 import Teleport from "../Teleport";
 
 interface Props {
