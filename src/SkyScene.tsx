@@ -1,24 +1,22 @@
 import React from "react";
 import { Entity, Scene } from "aframe-react";
+import SkyScenePoint from "./SkyScenePoint";
+import { Scene as ApiScene } from "./interfaces/scenes";
 
 interface Props {
-  background: string;
-  children?: any;
+  scene: ApiScene;
+  navigate(path: string): void;
 }
 
-const SkyScene = ({ background, children }: Props) => {
+const SkyScene = ({ scene, navigate }: Props) => {
+  const { backgroundUrl, points } = scene;
   return (
     <Scene cursor={{ rayOrigin: "mouse" }} className="sky_scene">
-      <Entity primitive="a-assets">
-        <Entity primitive="a-asset-item" id="gavin" src="/gavin/scene.gltf" />
-        <Entity primitive="a-asset-item" id="sky" src="/gavin/scene.gltf" />
-      </Entity>
-
       <Entity
         primitive="a-sky"
         id="image-360"
         radius="20"
-        src={background}
+        src={backgroundUrl}
         crossorigin="anonymous"
         animation={{
           fade:
@@ -27,7 +25,9 @@ const SkyScene = ({ background, children }: Props) => {
             "property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"
         }}
       />
-      {children}
+      {points.map((point) => (
+        <SkyScenePoint key={point.id} point={point} navigate={navigate} />
+      ))}
     </Scene>
   );
 };

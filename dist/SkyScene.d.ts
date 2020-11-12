@@ -1,6 +1,7 @@
+import { Scene as ApiScene } from "./interfaces/scenes";
 interface Props {
-    background: string;
-    children?: any;
+    scene: ApiScene;
+    navigate(path: string): void;
 }
-declare const SkyScene: ({ background, children }: Props) => JSX.Element;
+declare const SkyScene: ({ scene, navigate }: Props) => JSX.Element;
 export default SkyScene;
