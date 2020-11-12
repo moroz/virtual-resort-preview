@@ -5,7 +5,7 @@ import { Scene as ApiScene } from "./interfaces/scenes";
 
 interface Props {
   scene: ApiScene;
-  navigate(path: string): void;
+  navigate(destination: ApiScene): void;
 }
 
 const SkyScene = ({ scene, navigate }: Props) => {

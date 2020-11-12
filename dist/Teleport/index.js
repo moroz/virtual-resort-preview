@@ -26,7 +26,7 @@ const Teleport = ({ point, navigate }) => {
     const { position, rotation, destination } = point;
     const onClick = () => {
         if (destination)
-            navigate(`/scenes/${destination.slug}`);
+            navigate(destination);
     };
     const onMouseEnter = () => {
         setHover(true);

@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { ScenePoint } from "../interfaces/scenes";
+import { Scene, ScenePoint } from "../interfaces/scenes";
 import { Entity } from "aframe-react";
 
 interface Props {
   point: ScenePoint;
-  navigate(path: string): void;
+  navigate(destination: Partial<Scene>): void;
 }
 
 const Teleport = ({ point, navigate }: Props) => {
   const [hover, setHover] = useState(false);
   const { position, rotation, destination } = point;
   const onClick = () => {
-    if (destination) navigate(`/scenes/${destination.slug}`);
+    if (destination) navigate(destination);
   };
   const onMouseEnter = () => {
     setHover(true);
