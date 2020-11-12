@@ -6,7 +6,8 @@
   "author": "Karol Moroz <k.j.moroz@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "watch": "tsc --watch -p ."
   },
   "dependencies": {
     "aframe": "^1.0.4",

@@ -1,7 +1,16 @@
+import React from "react";
 import { ScenePoint } from "../interfaces/scenes";
 interface Props {
     point: ScenePoint;
     navigate(path: string): void;
 }
-declare const Teleport: ({ point, navigate }: Props) => JSX.Element;
-export default Teleport;
+export default class Teleport extends React.Component<Props> {
+    state: {
+        hover: boolean;
+    };
+    onClick: () => void;
+    onMouseEnter: () => void;
+    onMouseLeave: () => void;
+    render(): JSX.Element;
+}
+export {};
